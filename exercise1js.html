@@ -7,25 +7,29 @@
     <title>Exercise1</title>
 </head>
 <body>
-<p>Please input a number between 5 and 10</p>
-<input type="text" id="demo">
-<button type="button" onclick="myFunction()">Test Input</button>
-<p id="p01"></p>
+  
+<h2>JavaScript Geolocation API</h2>
+<p>Click the button to get your coordinates.</p>
+
+<button onclick="getLocation()">Try It</button>
+
+<p id="demo"></p>
+
 <script>
-   function myFunction(){
-    const message=document.getElementById("p01");
-    message.innerHTML="";
-    let x=document.getElementById("demo").value;
-    try{
-        if (x=="") throw "empty";
-        if(isNaN(x)) throw "not a number";
-        if (Number(x)&& x<5) throw "too low";
-        if (Number(x)&& x>10) throw "too high";
-    }
-    catch(err){
-        message.innerHTML="Input is "+err;
-    }
-   }
+const x = document.getElementById("demo");
+
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition);
+  } else { 
+    x.innerHTML = "Geolocation is not supported by this browser.";
+  }
+}
+
+function showPosition(position) {
+  x.innerHTML = "Latitude: " + position.coords.latitude + 
+  "<br>Longitude: " + position.coords.longitude;
+}
 </script>
 </body>
 </html>
