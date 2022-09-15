@@ -82,4 +82,6 @@ html {
   [class*="col-"] {
     width: 100%;
   }}
-  
+  #customer.tr:nth-child(even){
+     background-color: ;
+  }
