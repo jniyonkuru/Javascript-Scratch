@@ -1,32 +1,40 @@
-let currentUser = {};//create an instance of transaction
+let current = {};//declare an instance of transaction
 let balance=0;
 const transactions = [];// array of object(transactions)
 const send = document.querySelector('#send');
 const nameb = document.querySelector('#name');
 const phone =document.querySelector('#phone');
-const amount=document.querySelector('#amount')/* variables declaration*/
-const b=document.querySelector('#bal')
+const amount=document.querySelector('#amount')
+const successIcon=document.querySelectorAll('.success-icon');
+const failureIcon=document.querySelectorAll('.failure-icon');
+const erroMsg=document.querySelectorAll('.error');
 const receive=document.querySelector('#receive')
-const table1=document.querySelector('#table')
-send.addEventListener('click', (e) => {// add en event listner to the first button
+const table1=document.querySelector('#table-body')
+send.addEventListener('click', (e) => {// add en event listener to the first button
   e.preventDefault()
+  validFunc(nameb,0,"Name cannot be blank")
+  validFunc(phone,1,"phone number can't be blank")
+  validFunc(amount,2,"amount can't be blank")
   if(nameb.value==""||phone.value==0||amount.value==0){
-    alert("please fill out all fields")
-    return false;
-  }
-    currentUser.name = "Niyonkuru jacques";
-    currentUser.phone = "0787643787";
-    currentUser.date = new Date()
-    currentUser.trans="outgoing";
+      return false;}
+    current.name = "Niyonkuru jacques";
+    current.phone = "0787643787";
+    current.date = new Date()
+    current.trans="outgoing";
     balance=balance-amount.value;
+    current.balance=balance;
+    current.amount=amount.value;
     if(balance<0){
       alert("Insufficient fund")
+      nameb.value=""
+      amount.value=""
+      phone.value=""
       return false;
     }
-    transactions.unshift(currentUser);
-    currentUser={};
+   
+    transactions.unshift(current);
+    current={};
     localStorage.setItem("transaction",JSON.stringify(transactions))
-    b.value=balance;
     nameb.value=""
     amount.value=""
     phone.value=""
@@ -34,21 +42,25 @@ send.addEventListener('click', (e) => {// add en event listner to the first butt
 })
 receive.addEventListener('click',(e)=>{  // add event listner to the second button
   e.preventDefault()
+  validFunc(nameb,0,"Name cannot be blank")
+  validFunc(phone,1,"phone number can't be blank")
+  validFunc(amount,2,"amount can't be blank")
   if(nameb.value==""||phone.value==0||amount.value==0){
-    alert("please fill out all fields")
+
     return false;
   }
-   currentUser.name=nameb.value 
-   currentUser.phone=phone.value
-   currentUser.date=new Date()
-   currentUser.trans="incoming"
-   balance=balance+Number(amount.value)
-   transactions.unshift(currentUser);
-   currentUser={}
+   current.name=nameb.value ;
+   current.phone=phone.value;
+   current.date=new Date();
+   current.trans="incoming";  // record transaction
+   balance=balance+Number(amount.value);
+   current.balance=balance;
+   current.amount=amount.value;
+   transactions.unshift(current);
+   current={}
    localStorage.setItem("transaction",JSON.stringify(transactions));// store  to local storage
-   b.value=balance;
-   nameb.value=""
-   amount.value=""
+    nameb.value=""
+    amount.value=""
    phone.value=""
  render();
   }
@@ -60,16 +72,41 @@ receive.addEventListener('click',(e)=>{  // add event listner to the second butt
   var phoneCell=row.insertCell(1); // display in a table
   var dateCell=row.insertCell(2);
   var transCell=row.insertCell(3)
-  var deleteBtn=row.insertCell(4)
+  var amountcell=row.insertCell(4)
+  var balanceCell=row.insertCell(5)
+  var deleteBtn=row.insertCell(6)
+  
   nameCell.innerHTML=arr[0].name;
   phoneCell.innerHTML=arr[0].phone;
   dateCell.innerHTML=arr[0].date;
   transCell.innerHTML=arr[0].trans;
+  balanceCell.innerHTML=arr[0].balance;
+  amountcell.innerHTML=arr[0].amount;
   deleteBtn.innerHTML='<button onclick="dltRow(this)">delete</button>';
-
 }
+
  function dltRow(r){  // delete transaction
-  let i=r.parentNode.parentNode.rowIndex;
+  let i=r.parentNode.rowIndex;
   table1.deleteRow(i)
 
  }
+ let validFunc = (id, i,message) => {
+
+  if (id.value.trim() === "") {
+    erroMsg[i].innerHTML = message;
+    id.style.border = "2px solid red";
+    // icons
+    failureIcon[i].style.opacity = "1";
+     successIcon[i].style.opacity = "0"; // form  data validation
+
+  } 
+  
+  else {
+    erroMsg[i].innerHTML = "";
+    id.style.border = "2px solid green";
+    
+    // icons
+    failureIcon[i].style.opacity = "0";
+    successIcon[i].style.opacity = "1";
+  }
+}

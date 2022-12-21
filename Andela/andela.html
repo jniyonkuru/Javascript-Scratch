@@ -5,33 +5,59 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./andela.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+
     <title>Document</title>
 </head>
-<body>
-      <fieldset>
-        <div>
-            <h1>My Momo Account</h1>
-        </div>
-    <form action="">
-    <label for="bal"><b>Balance</b><input type="number" id="bal"></label>
-    <label for="name"><b>Names</b><input type="text" placeholder="Name" id="name" maxlength="20" autofocus/></label>   
-	<label for="phone"><b>Phone Number </b><input type="text" placeholder="Phone Number" id="phone"maxlength="10"pattern="[0-9]"/><label>
-    <label><b>Amount</b><input type="number"placeholder="Amount"  id="amount"/></label>
-    <input type="submit" value="send" id="send">
-    <input type="submit" value="Receive"id="receive">
-</form>
-     </div>
-    </fieldset>
+<body class="global" >
+    <div class="container">
+        <form action="" id="form">
+            <div class="title">My Momo Account</div>
+            <div>
+                <label for="name"><b>Names</b></label> 
+                <i class="fas fa-user"></i>
+                <input type="text" placeholder="Name" id="name"/>
+                <i class="fas fa-exclamation-circle failure-icon"></i>
+                <i class="far fa-check-circle success-icon"></i>
+                <div class="error"></div>
+            </div>
+            <div>
+                <label for="phone"><b>Phone Number </b></label>
+                <i class="fa fa-phone" aria-hidden="true"></i>
+                <input type="number" placeholder="Phone Number" id="phone" />
+                <i class="fas fa-exclamation-circle failure-icon"></i>
+                <i class="far fa-check-circle success-icon"></i>
+                
+                <div class="error"></div>
+            </div>
+            <div>
+                <label for="amount"><b>Amount</b></label>
+                <i class="fa fa-money"></i>
+                <input type="number"placeholder="Amount"  id="amount"/>
+                <i class="fas fa-exclamation-circle failure-icon"></i>
+                <i class="far fa-check-circle success-icon"></i>
+                <div class="error"></div>
+            </div>
+            <button id="send" type="submit" >Send</button>
+            <button id="receive" type="submit">Receive</button>
+        </form>
+    </div>
       <div id="tb">  
-        <h1> Transaction Report</h1>
+        <!-- <div class="title"> Transaction Report</div> -->
         <table id="table">
+            <thead>
             <tr>
                 <th>Sender</th>
                 <th>Sender-Phone</th>
                 <th>Date</th>
-                <th>Transaction</th>
-                <!-- <th>balance</th> -->
+                <th>Transactions</th>
+                <th>Amount</th>
+                <th>Balance</th>
+                <th>Delete</th>
             </tr>
+        </thead>
+        <tbody id="table-body">
+        </tbody>
         </table>
     </div>
     <script src="./andela.js"></script>
