@@ -9,7 +9,10 @@
   body {
     font-family: sans-serif;
   }
-
+ img{
+  width:400px;
+  margin:0 30px;
+ }
   form {
     display: flex;
     flex-direction: column;
@@ -19,15 +22,7 @@
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
     padding:2rem 2rem;
     margin-bottom: 0.5rem;
-<<<<<<< HEAD
-<<<<<<< HEAD
-    height: 55vh;
-=======
     height: 60vh;
->>>>>>> 0a95ffb (update layout)
-=======
-    height: 60vh;
->>>>>>> bc91c14 (update layout)
   }
   .container{
     display: flex;
@@ -90,7 +85,7 @@
 
   .btn {
     text-align: center;
-    background-color: #f2796e;
+    background-color:#c28ce4;
     border:none;
     border-radius: 8px;
     color: #fff;
@@ -118,18 +113,18 @@
   }
 #table{
     border-collapse: collapse;
-    margin:0 auto;
     font-size: 0.9em;
     font-family: sans-serif;
-    
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
     border-radius: 5px 5px 0 0;
-     overflow: hidden;
-     height:auto;
-    max-width: 500px;
+    overflow: hidden;
+    height:auto;
+    margin:0 auto;
+    width:80%;
+  
 }
 #table thead tr{
-    background-color:#f2796e;;
+    background-color:#c28ce4;
     color: #ffffff;
     text-align: center;
 }
@@ -143,7 +138,7 @@
     background-color: #f3f3f3;
 }
 #table tbody tr:last-of-type {
-    border-bottom: 2px solid #f2796e;;}
+    border-bottom: 2px solid #c28ce4}
 #table tbody tr.active-row {
     font-weight: bold;
     color: #009879;
