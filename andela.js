@@ -1,4 +1,6 @@
-let current = {};//declare an instance of transaction
+let sender = {
+
+};//declare an instance of transaction
 let balance=0;
 const transactions = [];// array of object(transactions)
 const send = document.querySelector('#send');
@@ -17,31 +19,31 @@ send.addEventListener('click', (e) => {// add en event listener to the first but
   validFunc(amount,2,"amount can't be blank")
   if(nameb.value==""||phone.value==0||amount.value==0){
       return false;}
-    current.name = "Niyonkuru jacques";
-    current.phone = "0787643787";
-    current.date = new Date()
-    current.trans="outgoing";
+    sender.name = "Niyonkuru jacques";
+    sender.phone = "0787643787";
+    sender.date = new Date()
+    sender.trans="outgoing";
     balance=balance-amount.value;
-    current.balance=balance;
-    current.amount=amount.value;
+    sender.balance=balance;
+    sender.amount=amount.value;
     if(balance<0){
       alert("Insufficient fund")
-      nameb.value=""
-      amount.value=""
-      phone.value=""
+      // nameb.value=""
+      // amount.value=""
+      // phone.value=""
       return false;
     }
-   
-    transactions.unshift(current);
-    current={};
+
+    transactions.unshift(sender);
+    sender={};
     localStorage.setItem("transaction",JSON.stringify(transactions))
-    nameb.value=""
-    amount.value=""
-    phone.value=""
+    // nameb.value=""
+    // amount.value=""
+    // phone.value=""
     render()
 })
 receive.addEventListener('click',(e)=>{  // add event listner to the second button
-  e.preventDefault()
+
   validFunc(nameb,0,"Name cannot be blank")
   validFunc(phone,1,"phone number can't be blank")
   validFunc(amount,2,"amount can't be blank")
@@ -49,19 +51,19 @@ receive.addEventListener('click',(e)=>{  // add event listner to the second butt
 
     return false;
   }
-   current.name=nameb.value ;
-   current.phone=phone.value;
-   current.date=new Date();
-   current.trans="incoming";  // record transaction
+   sender.name=nameb.value ;
+   sender.phone=phone.value;
+   sender.date=new Date();
+   sender.trans="incoming";  // record transaction
    balance=balance+Number(amount.value);
-   current.balance=balance;
-   current.amount=amount.value;
-   transactions.unshift(current);
-   current={}
+   sender.balance=balance;
+   sender.amount=amount.value;
+   transactions.unshift(sender);
+   sender={}
    localStorage.setItem("transaction",JSON.stringify(transactions));// store  to local storage
-    nameb.value=""
-    amount.value=""
-   phone.value=""
+  //   nameb.value=""
+  //   amount.value=""
+  //  phone.value=""
  render();
   }
 )
@@ -75,14 +77,14 @@ receive.addEventListener('click',(e)=>{  // add event listner to the second butt
   var amountcell=row.insertCell(4)
   var balanceCell=row.insertCell(5)
   var deleteBtn=row.insertCell(6)
-  
+
   nameCell.innerHTML=arr[0].name;
   phoneCell.innerHTML=arr[0].phone;
   dateCell.innerHTML=arr[0].date;
   transCell.innerHTML=arr[0].trans;
   balanceCell.innerHTML=arr[0].balance;
   amountcell.innerHTML=arr[0].amount;
-  deleteBtn.innerHTML='<button onclick="dltRow(this)">delete</button>';
+  deleteBtn.innerHTML='<a onclick="dltRow(this)" class="btn btn__tb">delete</a>';
 }
 
  function dltRow(r){  // delete transaction
@@ -98,13 +100,10 @@ receive.addEventListener('click',(e)=>{  // add event listner to the second butt
     // icons
     failureIcon[i].style.opacity = "1";
      successIcon[i].style.opacity = "0"; // form  data validation
-
-  } 
-  
+  }
   else {
     erroMsg[i].innerHTML = "";
     id.style.border = "2px solid green";
-    
     // icons
     failureIcon[i].style.opacity = "0";
     successIcon[i].style.opacity = "1";

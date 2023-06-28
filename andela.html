@@ -5,8 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./andela.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
-
+<link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      crossorigin="anonymous"
+    />
     <title>Document</title>
 </head>
 <body class="global" >
@@ -14,7 +17,7 @@
         <form action="" id="form">
             <div class="title">My Momo Account</div>
             <div>
-                <label for="name"><b>Names</b></label> 
+                <label for="name"><b>Names</b></label>
                 <i class="fas fa-user"></i>
                 <input type="text" placeholder="Name" id="name"/>
                 <i class="fas fa-exclamation-circle failure-icon"></i>
@@ -24,10 +27,10 @@
             <div>
                 <label for="phone"><b>Phone Number </b></label>
                 <i class="fa fa-phone" aria-hidden="true"></i>
-                <input type="number" placeholder="Phone Number" id="phone" />
+                <input type="text" placeholder="Phone Number" id="phone" />
                 <i class="fas fa-exclamation-circle failure-icon"></i>
                 <i class="far fa-check-circle success-icon"></i>
-                
+
                 <div class="error"></div>
             </div>
             <div>
@@ -38,11 +41,13 @@
                 <i class="far fa-check-circle success-icon"></i>
                 <div class="error"></div>
             </div>
-            <button id="send" type="submit" >Send</button>
-            <button id="receive" type="submit">Receive</button>
+            <div class="btn-container">
+            <a id="send" class="btn" type="submit" >Send</a>
+            <a id="receive" class="btn" type="submit">Receive</a>
+            </div>
         </form>
     </div>
-      <div id="tb">  
+      <div id="tb">
         <!-- <div class="title"> Transaction Report</div> -->
         <table id="table">
             <thead>

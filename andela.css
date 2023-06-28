@@ -1,23 +1,33 @@
 
 * {
-    margin: 0 auto;
+    margin:0;
     padding: 0;
     box-sizing: border-box;
+
   }
-  
+
   body {
     font-family: sans-serif;
   }
-  
+
   form {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    min-width: 500px;
+    justify-content: space-around;
+  
+    width:500px;
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-    padding:20px;
-    margin-bottom: 10px;
+    padding:2rem 2rem;
+    margin-bottom: 0.5rem;
+    height: 55vh;
   }
+  .container{
+    display: flex;
+    justify-content: center;
+    padding:30px;
+    
+  }
+
   .title {
     font-size: 25px;
     font-weight: bold;
@@ -34,20 +44,19 @@
     outline: none;
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
     border: 2px solid #c4c4c4;
-    padding: 0 30px;
-   
+    padding: 0 40px;
+
   }
   form div {
     position: relative;
-    margin-bottom: 15px;
+    margin-bottom: 5px;
     margin-left: 10px;
     margin-right: 10px;
   }
-  
   input:focus {
     border: 2px solid #f2796e;
   }
-  
+
   form div i {
     position: absolute;
     padding: 10px;
@@ -56,11 +65,11 @@
   .error {
     color: red;
   }
-  
+
   .success-icon {
     color: green;
   }
-  
+
   .error {
     font-size: 14.5px;
     margin-top: 5px;
@@ -71,35 +80,50 @@
     opacity: 0;
   }
 
-  button {
-    margin: 10px;
-    width: 100%;
-    height: 35px;
+  .btn {
+    text-align: center;
     background-color: #f2796e;
-    border: 2px solid #f2796e;
+    border:none;
     border-radius: 8px;
     color: #fff;
-    font-size: 16px;
+    font-size: 10px;
     cursor: pointer;
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-    
-    
+    padding:0.8rem 2rem;
+    transition:transform ,1s;
+
+  }
+  .btn__tb{
+    margin:0;
+    padding:0.5rem 1rem;
+  }
+  .btn-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 10px;
+    gap:40px;
+  }
+  .btn:hover{
+    transform: scale(1.1);
+    opacity:0.8;
   }
 #table{
     border-collapse: collapse;
-    margin:0;
+    margin:0 auto;
     font-size: 0.9em;
     font-family: sans-serif;
-    max-width:400px;
+    
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
     border-radius: 5px 5px 0 0;
      overflow: hidden;
-
+     height:auto;
+    max-width: 500px;
 }
 #table thead tr{
     background-color:#f2796e;;
     color: #ffffff;
-    text-align: left;
+    text-align: center;
 }
 #table th,#table td{
     padding: 8px 10px;
@@ -115,10 +139,5 @@
 #table tbody tr.active-row {
     font-weight: bold;
     color: #009879;
-}
-.global{
-    display: flex;
-    flex-direction:column;
-    
 }
 
