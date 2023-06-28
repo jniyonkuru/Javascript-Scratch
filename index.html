@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./andela.css">
+<link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      crossorigin="anonymous"
+    />
+    <title>Document</title>
+</head>
+<body class="global" >
+    <div class="container">
+        <form action="" id="form">
+            <div class="title">My Momo Account</div>
+            <div>
+                <label for="name"><b>Names</b></label>
+                <i class="fas fa-user"></i>
+                <input type="text" placeholder="Name" id="name"/>
+                <i class="fas fa-exclamation-circle failure-icon"></i>
+                <i class="far fa-check-circle success-icon"></i>
+                <div class="error"></div>
+            </div>
+            <div>
+                <label for="phone"><b>Phone Number </b></label>
+                <i class="fa fa-phone" aria-hidden="true"></i>
+                <input type="text" placeholder="Phone Number" id="phone" />
+                <i class="fas fa-exclamation-circle failure-icon"></i>
+                <i class="far fa-check-circle success-icon"></i>
+
+                <div class="error"></div>
+            </div>
+            <div>
+                <label for="amount"><b>Amount</b></label>
+                <i class="fa fa-money"></i>
+                <input type="number"placeholder="Amount"  id="amount"/>
+                <i class="fas fa-exclamation-circle failure-icon"></i>
+                <i class="far fa-check-circle success-icon"></i>
+                <div class="error"></div>
+            </div>
+            <div class="btn-container">
+            <a id="send" class="btn" type="submit" >Send</a>
+            <a id="receive" class="btn" type="submit">Receive</a>
+            </div>
+        </form>
+    </div>
+      <div id="tb">
+        <!-- <div class="title"> Transaction Report</div> -->
+        <table id="table">
+            <thead>
+            <tr>
+                <th>Sender</th>
+                <th>Sender-Phone</th>
+                <th>Date</th>
+                <th>Transactions</th>
+                <th>Amount</th>
+                <th>Balance</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody id="table-body">
+        </tbody>
+        </table>
+    </div>
+    <script src="./andela.js"></script>
+</body>
+</html>
