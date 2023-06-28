@@ -20,10 +20,14 @@
     padding:2rem 2rem;
     margin-bottom: 0.5rem;
 <<<<<<< HEAD
+<<<<<<< HEAD
     height: 55vh;
 =======
     height: 60vh;
 >>>>>>> 0a95ffb (update layout)
+=======
+    height: 60vh;
+>>>>>>> bc91c14 (update layout)
   }
   .container{
     display: flex;
